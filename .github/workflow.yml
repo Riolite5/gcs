@@ -3,7 +3,7 @@ name: gcp-storage-sync
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
@@ -16,4 +16,4 @@ jobs:
         env:
           GCP_SERVICE_ACCOUNT_KEY_FILE: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY_FILE }}
           GCP_STORAGE_BUCKET: ${{ secrets.GCP_STORAGE_BUCKET }}
-          SOURCE_DIR: "public"
+          SOURCE_DIR: "gcs"
