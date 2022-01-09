@@ -12,8 +12,9 @@ jobs:
       - uses: actions/checkout@v2
       - uses: omppye-lab/gcp-storage-sync@master
         with:
-          args: -d
+          args: --acl public-read --follow-symlinks --delete --exclude '.git*/*'
         env:
-          GCP_SERVICE_ACCOUNT_KEY_FILE: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY_FILE }}
+          GCP_SERVICE_ACCOUNT_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
+	  GCP_SERVICE_ACCOUNT_ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
           GCP_STORAGE_BUCKET: ${{ secrets.GCP_STORAGE_BUCKET }}
           SOURCE_DIR: "gcs"
